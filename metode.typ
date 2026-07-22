@@ -30,3 +30,9 @@ yang dimulai dari aktivitas pertama.
   image("./gambar/Peffers1.png", width: auto, height: 12em),
   caption: [Tahapan _Design Science Research Methodology_ @peffers_design_2007],
 ) <dsr-model>
+
+_Language server_ dievaluasi berdasarkan tiga aspek: kesesuaian pengujian, kecepatan waktu respon, dan dampaknya
+terhadap pengalaman pengembang web ketika membuat _view_ Blade. Kesesuaian pengujian diukur dari persentase kode yang
+dijalankan saat pengujian berlangsung. Kecepatan waktu respon diukur dari seberapa lama _language client_ mendapat tanggapan
+dari _language server_. Dampak terhadap pengalaman pengembang diukur menggunakan serangkaian kuesioner dan observasi langsung
+pengembang web ketika membuat _view_.
