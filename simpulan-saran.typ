@@ -3,13 +3,11 @@
 = Simpulan dan Saran
 
 Berdasarkan hasil penelitian, dapat disimpulkan bahwa pengembangan _language server_ dengan pendekatan
-Design Science Research sebagai kerangka kerja berhasil dilaksanakan. Melalui penerapan Design Science Research (DSR)
-versi #prose(<peffers_design_2007>), penelitian ini berhasil mengembangkan _language server_ yang mampu mencari
-lokasi komponen dan _layout_ dalam _workspace_, melompat ke file yang mendefinisikan komponen dan _layout_
-serta tempat penggunaan, menyajikan dokumentasi komponen dan _layout_ langsung di editor, melaporkan kesalahan
-saat pengeditan, menyediakan saran _auto-complete_, dan memberi informasi atribut yang disediakan oleh suatu komponen.
-Hasil pengujian _white box_ mengonfirmasi bahwa setiap _method_ LSP terimplementasi sesuai spesifikasi.
-Daya tanggapnya pun kompetitif dengan _language server_ bahasa serupa.
+Design Science Research versi #prose(<peffers_design_2007>) sebagai kerangka kerja berhasil dilaksanakan.
+Setiap _method_ LSP terimplementasi sesuai spesifikasi
+dan memiliki daya tanggap yang kompetitif dengan _language server_ bahasa serupa.
+Hasil dari kuesioner dan observasi langsung pun menunjukkan _developer experience_ yang lebih baik
+dibandingkan dengan keadaan sebelum memakai `blase`.
 
 Hasil penelitian ini menghasilkan beberapa saran yang dapat dijadikan
 pertimbangan untuk pengembangan selanjutnya, yaitu:

@@ -64,7 +64,7 @@ tree-sitter yang menghasilkan _node_ `ERROR` dan `MISSING` ketika menjumpai _tok
 _custom_ yang telah terdefinisi.
 
 #figure(
-  gambar("diagnosa-sintaks.png", height: 4em, width: auto),
+  gambar("diagnosa-sintaks.png", height: 5em, width: auto),
   caption: [Pelaporan kesalahan sintaks di Neovim],
 ) <diagnosa-sintaks>
 
@@ -76,7 +76,7 @@ Ekstensi tersebut kemudian dikemas dan didistribusikan langsung dari _repository
 sebagai artefak yang dihasilkan oleh proses _continuous integration_.
 
 #figure(
-  gambar("diagnosa-sintaks-code.png", height: 6em, width: auto),
+  gambar("diagnosa-sintaks-code.png", height: 8em, width: auto),
   caption: [Pelaporan kesalahan sintaks di VS Code],
 ) <diagnosa-sintaks-code>
 
@@ -273,19 +273,14 @@ evaluasi pengalaman pengembang yang menjadi poin data aktivitas berikutnya.
 
 === _White Box Testing_
 
+#figure(gambar("coverage.png", height: 8em, width: auto), caption: [_Code coverage_ untuk modul fitur inti]) <coverage>
+
 @coverage menunjukkan persentase kode program yang dijalankan saat pengujian untuk setiap modul fitur inti.
 Sebagian besar mencapai sembilan puluh persen, dengan hampir setengahnya terjalankan penuh sampai seratus persen.
 Hal ini berarti setiap skenario pengujian berhasil menguji sebagian besar kemungkinan perilaku dari
 setiap fitur inti _language server_.
 
-#figure(gambar("coverage.png", height: 8em, width: auto), caption: [_Code coverage_ untuk modul fitur inti]) <coverage>
-
 === Waktu Respon
-@banding-respon menunjukkan hasil perbandingan median waktu respon language server yang serupa dengan `blase` untuk
-dua puluh _request_ per method LSP. Perbandingan dilakukan dengan spesifikasi sesuai yang ditunjukkan
-oleh @spesifikasi-mesin, dengan pengaturan kompilasi _release_.
-Semua pengukuran dalam milidetik (_ms_).
-
 #figure(
   [
     #table(
@@ -338,6 +333,11 @@ Semua pengukuran dalam milidetik (_ms_).
   ) <banding-respon>]
 }
 
+@banding-respon menunjukkan hasil perbandingan median waktu respon language server yang serupa dengan `blase` untuk
+dua puluh _request_ per method LSP. Perbandingan dilakukan dengan spesifikasi sesuai yang ditunjukkan
+oleh @spesifikasi-mesin, dengan pengaturan kompilasi _release_.
+Semua pengukuran dalam milidetik (_ms_).
+
 Mengikuti pedoman #prose(<seow_designing_2008>), mayoritas _request_ oleh _language client_ ditanggapi `blase`
 lebih cepat dari _instantaneous_. Tak hanya itu, `blase` pun mampu mengalahkan waktu respon
 dari tiga _method_ yang didukung oleh Intelephense, _language server_ yang merupakan alat bantu berbayar
@@ -345,8 +345,17 @@ yang dipakai oleh pengembang web profesional. Dari hasil analisis tersebut, dapa
 bersaing dengan alat bantu berbayar dalam hal daya tanggap.
 
 === Kuesioner dan Observasi Pengguna
-// Demografi Responden
-// Ceritakan siapa saja yang merespon. Sertakan grafik yang mengilustrasikan demografi responden.
+
+#figure(
+  gambar("demografi.png", height: 6em, width: auto),
+  caption: [Demografi responden berdasarkan tahun pengalaman],
+) <demografi>
+
+@demografi menunjukkan persentase responden berdasarkan berapa lama mereka telah menggunakan Laravel untuk pengembangan web.
+Dari situ, dapat diketahui sebagian besar responden memiliki satu sampai tiga tahun pengalaman pengembangan web menggunakan Laravel.
+Dapat diketahui pula bahwa ada lebih banyak responden dengan pengalaman lebih dari sepuluh tahun dibanding
+yang memiliki tujuh hingga sepuluh.
+
 Di salah satu sesi observasi awal, ditemukan bahwa proses instalasi VS Code yang memisahkan antara
 pemasangan ekstensi dengan berkas _executable_ menimbulkan kebingungan yang menghambat penyelesaian tugas.
 Responden sibuk mencari lokasi unduh berkas _executable_ dan mengonfigurasi direktori mana yang akan ditambahkan
@@ -354,6 +363,56 @@ ke variabel PATH.
 Oleh karena itu, ekstensi VS Code diubah agar memakai berkas _executable_ _language server_ yang ditaruh dalam
 ekstensi secara langsung. Hal tersebut mempersingkat proses pemasangan ekstensi dan memastikan sesi observasi
 berikutnya dapat dengan segera beralih ke penyelesaian tugas.
+
+#figure(
+  caption: [Penilaian responden terhadap fitur _language server_],
+  {
+    import "./fn.typ": split_float
+    let headers = ([Fitur], [Rata-Rata Penilaian])
+    let rows = (
+      "Go to Definition": 4.5,
+      "Find References": 4,
+      "Hover": 4,
+      "Autocomplete": 4,
+      "Signature Help": 3,
+      "Syntax Highlighting": 3.5,
+      "Syntax Errors": 3,
+    )
+      .pairs()
+      .map(pair => {
+        let (ft, score) = pair
+        let (i, d) = split_float(score)
+        let i = int(i)
+        let star = "★"
+        let half-star = "\u{2BE8}"
+        let stars = (star,) * i
+        if d != none {
+          stars.push(half-star)
+        }
+        (
+          emph(ft),
+          grid(
+            column-gutter: 1.5em,
+            columns: (2.5em, auto),
+            stars.join(), [(#score / 5)],
+          ),
+        )
+      })
+      .flatten()
+
+    tabel(
+      columns: headers.len(),
+      headers: headers,
+      ..rows,
+    )
+  },
+) <penilaian-fitur>
+
+Setelah observasi, responden diminta untuk mengukur pengalaman mereka dan menilai fitur yang digunakan dengan sistem bintang.
+@penilaian-fitur menunjukkan rata-rata bintang yang diberikan responden.
+Semua responden merasa proses instalasi `blase` sangat mudah dan pada saat pengerjaan task, tidak ada kesulitan yang
+dipersulit oleh `blase`. Rata-rata responden merasa pembuatan _view_ dengan bantuan `blase` lebih baik dibanding tanpa bantuan dan
+merasa mungkin untuk menggunakan `blase` untuk membantu pengembangan web sehari-hari.
 
 == _Communication_
 Hasil penelitian telah disampaikan kepada audiens ilmiah melalui makalah seminar ini.
