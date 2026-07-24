@@ -30,10 +30,11 @@ yang membatasi akses untuk beberapa kalangan. Karena itu pula, bantuan pengedita
 ini seringkali tidak bisa digunakan di lingkungan yang hanya menyediakan antarmuka tekstual
 di dalam terminal, antarmuka yang sampai saat ini masih sering dipakai oleh pengembang @gandhi_lightening_2020.
 
-Untuk mengatasi masalah tersebut, _language server_ untuk Blade dikembangkan.
-Penelitian sebelumnya seperti yang dilakukan oleh #prose(<videira_development_2025>)
-telah membuktikan bahwa bantuan pengeditan seperti _language server_ mampu meningkatkan
-_developer experience_ suatu bahasa perangkat lunak, tanpa peduli apakah editor tersebut
-menggunakan antarmuka grafis atau teks. Harapannya dengan dikembangkannya _language server_ untuk Blade,
-pengembang web mampu mendapat _developer experience_ yang baik di lingkungan pengembangan
-manapun yang mereka anggap paling produktif.
+Untuk mengatasi masalah tersebut, _language server_ untuk Blade bertajuk `blase` dikembangkan.
+Penelitian ini berfokus merancang dan mengembangkan _language server_ untuk
+bahasa Blade yang didefinisikan di dokumentasi Laravel versi 12.x. Setelah itu, _language server_
+diintegrasikan dengan Neovim dan Visual Studio Code, diukur dampaknya terhadap _developer experience_
+dan dirilis secara _open source_ melalui GitHub.
+Harapannya hasil dari penelitian ini dapat membantu pengembang web Laravel ketika menggunakan Blade,
+berkontribusi terhadap literatur penelitian _developer tooling_,
+dan berdampak positif terhadap ekosistem bantuan pengeditan kode _open source_.
