@@ -8,8 +8,6 @@
 Penelitian ini dilaksanakan di Sekolah Vokasi IPB _University_ dan
 berlangsung dari Oktober 2025 hingga Juli 2026.
 
-#pagebreak()
-
 = Metode
 Penelitian ini menggunakan pendekatan Design Science Research (DSR) versi #prose(<peffers_design_2007>).
 DSR adalah paradigma penelitian yang menjawab permasalahan yang relevan
