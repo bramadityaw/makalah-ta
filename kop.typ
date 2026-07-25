@@ -21,6 +21,6 @@
     columns: (2.5fr, 1.5fr),
     row-gutter: 0.5em,
     [Menyetujui], none,
-    var.penguji + [:], align(bottom, line(length: 100%)),
+    var.pembimbing + [:], align(bottom, line(length: 100%)),
   )
 }
