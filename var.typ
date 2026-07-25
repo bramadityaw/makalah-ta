@@ -5,4 +5,4 @@
 #let prodi = [Teknologi Rekayasa Perangkat Lunak]
 #let pembimbing = [Dr. Sofiyanti Indriasari, S.Kom., M.Kom.]
 #let penguji = [Aditya Wicaksono, S.Komp., M.Kom.]
-#let tanggal-seminar = "todo"
+#let tanggal-seminar = [Rabu, 29 Juli 2026]
